@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="log-in.css">
+</head>
+
+<body>
+    <div class="loginbox">
+        <img src="login.jpg" alt="login icon" class="pancakes" />
+        <h1>Change password</h1>
+        <form id="forgot">
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Enter Username">
+            <p>Enter New Password</p>
+            <input type="password" name="password" placeholder="Enter New password" required="required" maxlength="8">
+            <input type="password" name="confirm" placeholder="Confirm New password" required="required" maxlength="8">
+            <input type="submit" name="forgot" value="Change Password">
+            <a href="/frontend/index.html">Already have an account?</a>
+        </form>
+    </div>
+    <script>
+        let forgot = document.getElementById('forgot');
+
+        const handleForgot = (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            let newPassword = formData.get('password');
+            let conPassword = formData.get('confirm');
+
+            if (newPassword && conPassword) {
+                for (let i = 0; i < newPassword.length; i++) {
+                    if (newPassword[i] !== conPassword[i]) {
+                        console.log('not the same');
+                        return;
+                    }
+                }
+                console.log('same');
+            } else {
+                console.log('Passwords cannot be empty');
+            }
+        }
+
+        forgot.addEventListener('submit', (e) => {
+            handleForgot(e);
+        })
+    </script>
+</body>
+
+</html>
