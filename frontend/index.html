@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="log-in.css">
+</head>
+
+<body>
+    <div class="loginbox">
+        <img src="login.jpg" alt="login icon" class="pancakes" />
+        <h1>Login Here</h1>
+        <form id="login">
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Enter Username" id="logUsername">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Enter password" required="required" maxlength="8">
+            <input type="submit" name="login" value="Login">
+            <a href="/frontend/forgot.html">Forgot Password?</a> <br>
+            <a href="/frontend/signUp.html">Don't have an account?</a>
+        </form>
+    </div>
+
+    <span id="logo">@joe<span id="logo-col">crypt</span> </span>
+    <script>
+        let login = document.getElementById('login');
+
+        const handleLogin = (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            let username = formData.get('username');
+            let password = formData.get('password')
+            alert(`${username} ${password}`)
+        }
+
+        login.addEventListener('submit', (e) => {
+            handleLogin(e);
+        })
+    </script>
+</body>
+
+</html>

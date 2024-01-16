@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="log-in.css">
+</head>
+
+<body>
+    <div class="loginbox">
+        <img src="login.jpg" alt="login icon" class="pancakes" />
+        <h1 id="sign">Sign Up Here</h1>
+        <form id="signUp">
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Enter Username">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Enter password" required="required" maxlength="8">
+            <input type="submit" name="login" value="Sign Up">
+            <a href="/frontend/forgot.html">Forgot Password?</a> <br>
+            <a href="/frontend/index.html">Already have an account?</a>
+        </form>
+    </div>
+    <script>
+        let signup = document.getElementById('signUp');
+        sign.addEventListener('click', () => {
+            alert('hey')
+        })
+        const handleSignup = (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            let username = formData.get('username');
+            let password = formData.get('password')
+            alert(`${username} ${password}`)
+        }
+
+        signup.addEventListener('submit', (e) => {
+            handleSignup(e);
+        })
+    </script>
+</body>
+
+</html>
